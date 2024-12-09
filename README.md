@@ -71,7 +71,9 @@ bayesian-word-weighting/
 │   └── bayesian_word_weighting_example.ipynb
 ├── docs/                           # Documentation files
 │   └── algorithm.md
-├── bayesian_weighting.py           # Main algorithm implementation
+├── bayesian_weighting
+│   └── __init__.py
+│   └── bayesian_weighting.py       # Main algorithm implementation
 ├── requirements.txt                # Python dependencies
 ├── LICENSE                         # License file
 └── README.md                       # This README file
@@ -87,5 +89,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Contact
 
-For questions or support, please reach out to `your_email@example.com`.
+For questions or support, please reach out to `ai.benyahya@edu.umi.ac.ma`.
 
