@@ -41,13 +41,16 @@ model = Word2Vec(sentences, vector_size=300, window=5, min_count=1, workers=4)
 ### 3. Calculate Bayesian Weights
 Compute the prior, likelihood, and posterior probabilities for words and categories using the formulas provided in the [algorithm description](docs/algorithm.md).
 
-### 4. Generate Weighted Embeddings
-Use the provided algorithm to create weighted embeddings for your text data:
+Use the provided algorithm to create word weights embeddings for your text data:
 ```python
-from bayesian_weighting import prepare_weighted_embeddings
+from bayesian_weighting import calculate_bayes_word_weights
 
-embedding_matrix = prepare_weighted_embeddings(documents, categories, word2vec_model, bayesian_weights, max_len=128)
+weights_matrix = calculate_bayes_word_weights(documents, categories)
 ```
+### 4. Generate Weighted Emebeddings
+To use the generated bayes-based weights, you need to generate the embedding vectors of each word using custom or pretrained word embedding such as word2vec, glove and fastext, then multiply each word embedding vector by its corresponding bayesian weight to get the weighted word vectors.
+
+embedding_matrix = $embedding_vector(w_i) * weights_matrix(w_i)$
 
 ### 5. Train Your Model
 Pass the weighted embeddings to your classification model (e.g., BiLSTM):
